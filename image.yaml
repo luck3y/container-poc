@@ -1,0 +1,25 @@
+schema_version: 1
+
+name: "jboss-eap-7/eap73"
+description: "Red Hat JBoss Enterprise Application Platform 7.3 container image"
+version: "7.3.4"
+from: "registry.redhat.io/ubi8:latest"
+labels:
+    - name: "some.example.label.name"
+      value: "some.label.value"
+
+packages:
+  manager: dnf
+
+modules:
+      repositories:
+          - name: cct_module
+            git:
+                  url: https://github.com/jboss-openshift/cct_module.git
+                  ref: master
+          - path: modules
+      install:
+          - name: jboss.container.openjdk.jdk
+            version: "8"
+          - name: eap-73-latest
+            version: "7.3-latest"
