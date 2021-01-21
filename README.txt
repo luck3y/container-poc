@@ -11,3 +11,10 @@ Instructions:
 
 - Build the image:
    $ cekit -v build docker
+
+- Alternatively, you can generate a DockerFile which may be modified to suit your end usage:
+   $ cekit -v build --dry-run docker
+ The DockerFile (and artifacts / modules) are found in target/image, which you may modify and then build with:
+   $ cd target/image
+   $ docker build .
+
